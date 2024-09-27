@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+
+<h2>Lista de Produtos</h2>
+
+<form method="post">
+    <label for="NewProduct">Adicionar Produto:</label>
+    <input type="text" id="NewProduct" asp-for="NewProduct" />
+    <button type="submit">Adicionar</button>
+</form>
+
+<h3>Produtos Adicionados:</h3>
+<ul>
+    @foreach (var product in Model.Products)
+    {
+        <li>@product</li>
+    }
+</ul>

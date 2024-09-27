@@ -1,0 +1,30 @@
+@page
+@model EX_7.Pages.Livros.IndexModel
+
+<h2>Lista de Livros</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var livro in Model.Livros)
+    {
+        <tr>
+            <td>@livro.Titulo</td>
+            <td>@livro.Autor</td>
+            <td>
+                <form method="post" asp-page-handler="Delete" asp-route-id="@livro.Id">
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-page="./Create" class="btn btn-primary">Adicionar Novo Livro</a>
